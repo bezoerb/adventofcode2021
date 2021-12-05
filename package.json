@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "callsite": "^1.0.0",
+    "chalk": "^4.1.2"
+  }
+}
