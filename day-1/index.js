@@ -1,6 +1,5 @@
 const { run, ask, answer } = require('../lib/utils');
-
-const acc = (arr) => arr.reduce((last, cur) => last + cur, 0);
+const { sum } = require('../lib/array');
 
 run((input) => {
   const [first, ...rows] = input.split(/[\r\n]/).map((num) => parseFloat(num));
@@ -21,7 +20,7 @@ run((input) => {
   answer(count);
 
   ask('How many sums are larger than the previous sum?');
-  const [firstSum, ...sums] = windows.filter((window) => window.length === 3).map((window) => acc(window));
+  const [firstSum, ...sums] = windows.filter((window) => window.length === 3).map((window) => sum(window));
   const [, countSum] = sums.reduce(
     ([last, count], current) => {
       return [current, current > last ? count + 1 : count];
